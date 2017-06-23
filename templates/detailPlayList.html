@@ -1,0 +1,49 @@
+<div id="playList">
+    <div class="audiowrap">
+        <div class="showpic">
+                <div class="showpicdot"><img src="" alt=""></div>
+                <div class="showpicname"></div>
+        </div>
+        <div class="description"></div>
+        <audio id="audio"src="" controls="controls" autoplay loop></audio></div>
+    <ul id="nodeList"></ul>
+</div>
+<script type="text/javascript">
+    var _url=window.location.href;
+    var _identify=_url.match(/\/\d+/g)[0].match(/\d+/)[0];
+    var _path="https://api.imjad.cn/cloudmusic/?type=playlist&id="+_identify;
+    $.get(_path,null,function(data,textStatus){
+        if(textStatus=="success"){
+            $(".showpicdot").find("img").attr("src",data.playlist["coverImgUrl"])
+            $(".showpicname").html("【"+data.playlist["name"]+"】")
+            $(".description").html("简介：【"+data.playlist["description"]+"】")
+            var _code="";
+            var _data=data.playlist.tracks;
+            var $nodeList=$("#nodeList")
+            for(var k in _data){
+                _code+="<li hashzhi='"+_data[k].id+"'><span>"+(Number(k)+1)+"</span><span>"+_data[k]["name"]+"<br>"+_data[k]["ar"][0].name+"</span></li>";
+            }
+            $nodeList.html(_code);
+            $nodeList.find("li").click(function(){
+                var  $audio= $("#audio");
+                var urll=$(this).attr("hashzhi");
+                var songdetail="https://api.imjad.cn/cloudmusic/?type=songlist&id="+urll;
+                 $.get(songdetail,null,function(dataa,statuss){
+                     if(statuss=="success"){
+                         $audio.attr("src",dataa.data[0].url)
+                     }
+                 })
+            });
+
+
+
+
+
+
+
+
+
+
+        }
+    });
+</script>

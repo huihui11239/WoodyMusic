@@ -1,0 +1,184 @@
+html{
+    font-size:100px;
+}
+body,ul,li{
+    margin:0 auto; padding:0; list-style: none;position:relative;
+}
+img{
+    border:none;
+}
+.topnavwrap{
+    height:0.9rem;
+    background-color:#fff;
+
+}
+.top{
+    width:100%;
+    height:0.56rem;
+    background-color:#ce3d3e;
+    position:fixed;
+    z-index:2;
+
+}
+.top .logo{
+    float:left;
+    margin:0.04rem auto auto 0.08rem;
+    font-size:0.12rem;
+    color:#fff;
+    font-weight:bolder;
+    position:relative;
+
+}
+
+.top .logo img{
+    width:1.3rem
+}
+.nav{
+    margin-top:1px;
+    width:4.14rem;
+    height:0.48rem;
+    display:-webkit-flex;/*safari*/
+    display:flex;
+    flex-flow:row/*主轴*/ nowrap;  /*flex-direction: column;flex-wrap:wrap; */
+    justify-content:flex-start;
+    align-items: flex-start;/*交叉轴*/
+    position:fixed;
+    z-index:2;
+    top:0.5rem;
+}
+.nav div{
+    width:1.035rem;
+    height:0.48rem;
+    font-size:0.14rem;
+    background-color:#fff;
+    text-align:center;
+    line-height:0.48rem;
+    color:#555;
+    font-family:"微软雅黑";
+    cursor:pointer;
+}
+.nav #line{
+    height:0.02rem;
+    width:1.035rem;
+    background-color: #ce1e12;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+}
+#banner {width:100%;}
+#banner img{width:100%;}
+
+
+#songList{
+    width:4.14rem;
+    display:-webkit-flex;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+}
+#songList li{
+    width:1.35rem;
+    height:1.65rem;
+    overflow:hidden;
+}
+#songList li img{
+    float:left;
+    width:1.35rem;
+    height:1.35rem;
+}
+#songList a{
+    display:block;
+    float:left;
+    width:1.35rem;
+    height: 0.3rem;
+    color:#555;
+    text-align:center;
+    line-height:0.3rem;
+    overflow:hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size:0.13rem;
+    text-decoration: none;
+}
+#nodeList{
+    width:100%;
+    height:auto;
+    padding-top:2.78rem
+}
+#nodeList li{
+    width:3.9rem; height:0.6rem; border-top:solid 1px #ccc;
+     padding-left:0.24rem;
+    overflow:hidden;
+}
+#nodeList li span{
+
+    height:0.5rem;
+    color:#555;
+    text-align:left;
+    float:left;
+}
+#nodeList li span:nth-child(1){
+    width:0.4rem;
+    line-height:0.5rem;
+    font-size:0.18rem;
+    font-weight: bold;
+    font-family: Arial;
+}
+#nodeList li span:nth-child(2){
+    width:3.26rem;
+    line-height:0.25rem;
+    font-size:0.13rem;
+    font-family: Arial;
+    margin-top:0.05rem;
+}
+
+.audiowrap{
+    width:99.4vw;
+    position:fixed;
+    border-radius:3px;
+    background-image:-webkit-linear-gradient(left top,orange,green);
+    background-image:-moz-linear-gradient(left top,orange,green);
+    background-image:-O-linear-gradient(left top,orange,green);
+    background-image:-ms-linear-gradient(left top,orange,green);
+    background-image:linear-gradient(left top,orange,green);
+    z-index:1}
+#audio{display:block;height:0.5rem;width:100%;position:relative}
+#backpage{font-family:Consolas;color:#fff;text-decoration:none;position:absolute;left:0.15rem;top:0.08rem;font-size:0.16rem;}
+.contrll{font-size:0.2rem;}
+#playList{}
+.showpic{font-size:0.14rem;height:1.5rem;overflow:hidden;}
+.showpicdot{width:30%;margin:0.2rem 0 0 0.15rem;float:left;}
+.showpicdot img {width:100%;}
+.showpicname{float:left;width:50%;margin:0.15rem 0 0 0.15rem;font-size:0.16rem;color:#fff}
+.description{font-size:0.12rem;margin:0.04rem 0.15rem 0 0.15rem;overflow:hidden;height:0.59rem;color:#fff}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

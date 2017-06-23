@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script type="text/javascript">
+    </script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        //模块加载-------------------------------------------------------------------------------------
+        function loadModel(_selector,_url){
+            $(_selector).load(_url);
+        }
+        //主模块-------------------------------------------------------------------------------------
+        $(function(){
+            $("html").css("font-size",$(window).width()/414*100+"px");//reset html font-size
+           loadModel("#main","templates/index.html")
+            //移动的线条-------------------------------------------------------------------------------------
+            function moveLine(){
+                $("#nav div").not("#line").click(function(){
+                    //$(this).index();
+                    $("#line").animate({
+                        "left":$(this).index()*$(this).width()
+                    },600,"swing");
+                    loadModel("#main","templates/"+this.id+".html");
+                });
+            }
+
+            function readNav(){
+                $nav=$("#nav");
+                $.get("JSON/navigator.json",null,function(data,textStatus){
+                    if(textStatus=="success"){
+                        var _code="";
+                        for(var k in data){
+                            _code+="<div id="+data[k].url+">"+data[k].name+"</div>";
+                        }
+                        $nav.html(_code);
+                        $nav.append("<div id='line'></div>");
+                        moveLine();
+                    }
+                });
+            }
+            readNav();
+            //http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool
+        });
+    </script>
+</head>
+<body>
+<div class="topnavwrap">
+    <div class="top">
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <div class="search"></div>
+    </div>
+    <div class="nav" id="nav"></div>
+</div>
+
+    <div id="main"></div>
+</body>
+</html>

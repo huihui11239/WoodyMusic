@@ -1,0 +1,20 @@
+<div id="sort">
+    <ul id="songList"></ul>
+</div>
+<script type="text/javascript">
+    var _encode=encodeURIComponent("全部");//编码 ****URI格式的编码
+    var _url="http://musicapi.duapp.com/api.php?type=topPlayList&cat="+encodeURIComponent("全部")+"&offset=9&limit=27 ";
+    var urrl='http://musicapi.duapp.com/api.php?type=topPlayList&cat=%E5%85%A8%E9%83%A8&offset=0&limit=6'
+    $.get(_url,null,function(data,a){
+        if(a=="success"){
+            var _code="";
+            for(var k in data.playlists){
+                _code+="<li><img src='"+data.playlists[k]["coverImgUrl"]+"'/><a href='#/playListDetail/"+data.playlists[k].id+"'>"+data.playlists[k]["name"]+"</a></li>"
+            }
+            $("#songList").html(_code);
+            $("#songList a").click(function(){
+                loadModel("body","templates/detailPlayList.html");
+            });
+        }
+    });
+</script>
